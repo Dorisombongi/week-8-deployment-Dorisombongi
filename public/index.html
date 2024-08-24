@@ -1,0 +1,52 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        
+        <div class="info">
+            <h2>Welcome, <span id="username">User</span></h2>
+            <div>
+                <p><strong>Total Balance:</strong> $<span id="total-balance">0</span></p>
+                <p><strong>Budget:</strong> $<span id="total-budget">0</span></p>
+                <p><strong>Spent:</strong> $<span id="total-spent">0</span></p>
+
+            
+        <!-- Logout message area -->
+        <div id="logout-message" style="display: none; color: #00800b; font-size: 18px; margin-top: 20px;">
+            Logout successful
+        </div>
+
+            </div>
+            <button class="add-budget" onclick="addBudget()">Add Budget</button>
+            <button class="add-expense" onclick="addExpense()">Add Expense</button>
+            
+
+        </div>
+        <div class="section">
+            
+            <button onclick="viewExpenses()">View Expense History</button>
+        </div>
+        <div class="section">
+            
+            <button onclick="viewBudgets()">View Budget History</button>
+        </div>
+        <div class="section">
+            <h3>TRANSACTIONS</h3>
+            <button onclick="viewTransactions()">View Transactions</button>
+        </div>
+        <button class="auth-button" id="auth-button" onclick="handleAuthClick()">Logout</button>
+
+        
+    
+    </div>
+    <script src="index.js"></script>
+    
+</body>
+</html>

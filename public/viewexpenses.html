@@ -1,0 +1,222 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense History</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .expense-history-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        button {
+            background-color: #ff5252;
+            color: #fff;
+            border: none;
+            padding: 4px 12px;
+            margin: 6px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #c62828;
+        }
+
+
+       
+        
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px; /* Adjusted font size for the table */
+        }
+
+        th, td {
+            padding: 6px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        thead {
+            background-color: #0277bd; 
+            color: #fff; 
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #bbeef0; 
+        }
+
+        tbody tr:hover {
+            background-color: #ddd;
+        }
+
+        .expense-history-container table {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+    
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-content form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        select {
+           width: 100%;
+           padding: 10px;
+           font-size: 16px;
+           border: 1px solid #ddd;
+           border-radius: 4px;
+        }
+
+        #chart-container {
+            margin: 20px 0;
+            width: 100%;
+            max-width: 500px; /* Adjust max-width to control chart size */
+            height: 250px; /* Adjust height to control chart size */
+        }
+
+        canvas {
+            width: 100% !important; /* Ensure canvas scales to container width */
+            height: 100% !important; /* Ensure canvas scales to container height */
+        }
+
+    </style>
+    <!-- Add Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    </style>
+</head>
+<body>
+    <div class="expense-history-container">
+        <h2>Expense History</h2>
+        <button onclick="goBack()">Back to Dashboard</button>
+        <button onclick="deleteSelectedExpenses()">Delete Selected Expenses</button>
+
+        <!-- Chart Container -->
+        <div id="chart-container">
+            <canvas id="expenseChart"></canvas>
+        </div>
+
+        <table id="expense-table">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="expense-tbody">
+                <!-- Expenses will be inserted here -->
+            </tbody>
+        </table>
+         
+        
+    </div>
+
+    <!-- The Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Edit Expense</h2>
+            <form id="editForm">
+                <input type="hidden" id="expenseId">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Fees">Fees</option>
+                    <option value="Food">Food</option>
+                    <option value="Health insurance">Health insurance</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Internet">Internet</option>
+                    <option value="Personal Catering">Personal Catering</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Others">Others</option>
+                </select>    
+                
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" step="0.01" min="0" required>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" required>
+                
+                <button type="submit">Update Expense</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="viewexpenses.js"></script>
+    
+</body>
+</html>

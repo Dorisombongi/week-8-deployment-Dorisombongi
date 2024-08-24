@@ -1,0 +1,152 @@
+
+        body {
+            background-color: #ffffff;
+            color: #fff; /* White text color */
+        }
+
+        .dashboard-container {
+            position: relative;
+            background-color: #dfe7f5;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 70px;
+            box-sizing: border-box;
+            max-width: 400px;
+            margin: 20px auto;
+            color: #333; 
+        }
+
+        .profile-section {
+            margin-bottom: 20px;
+        }
+        
+        
+        .profile-picture-container {
+            
+            position: absolute; /* Absolute positioning to place in top-left corner */
+            top: 20px; 
+            left: 20px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px; /* Smaller size */
+            height: 60px; /* Smaller size */
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #ddd;
+            cursor: pointer; 
+            margin: 0 auto; 
+        }
+        
+        #profile-picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            
+        }
+        
+        #profile-upload {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        
+
+        .info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .info h2 {
+            color: #0277bd;
+        }
+
+        .info p {
+            font-size: 18px;
+        }
+
+        .info div {
+            margin-bottom: 10px;
+        }
+
+        
+
+        .auth-button {
+            background-color: #ff5252;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .auth-button:hover {
+            background-color: #c62828;
+        }
+
+        .add-budget {
+        background-color: #0277bd;
+        color: #fff;
+        border: none;
+        padding: 4px; 
+        border-radius: 4px;
+        cursor: pointer;
+        width: 50%;
+        font-size: 16px;
+        margin-top: 10px; 
+        }
+
+      .add-budget:hover {
+       background-color: #01579b;
+       }
+
+       
+.add-expense {
+    background-color: #ff5252;
+    color: white;
+    cursor: pointer;
+    width: 45%;
+    padding: 4px; 
+    border-radius: 4px;
+}
+
+.add-expense:hover {
+    background-color: #c62828;
+}
+
+
+        .section {
+            margin-top: 20px;
+        }
+
+        .section h3 {
+            color: #0277bd;
+            margin-bottom: 10px;
+        }
+
+        .section button {
+            background-color: #0277bd;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 15px;
+            text-align: center;
+            margin-top: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .section button:hover {
+            background-color: #01579b;
+        }
+    
